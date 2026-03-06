@@ -29,8 +29,8 @@ def home():
     return "🚀 Universal Studio AI News Agent is running 24/7!"
 
 def run_web():
-    # Cloud ပေါ်တွင် run ရန် port 8000 ကို ဖွင့်ထားပါသည်
-    app.run(host='0.0.0.0', port=8000)
+    # 💡 use_reloader=False ဆိုတာ ထည့်လိုက်ပါ (ဒါမှ ၂ ကောင် ပွားမလာမှာပါ)
+    app.run(host='0.0.0.0', port=8000, use_reloader=False)
 
 # ==========================================
 # 🕵️‍♂️ 3. THE SCOUT AGENT (သတင်းထောက်)
@@ -150,4 +150,5 @@ if __name__ == "__main__":
         bot.infinity_polling(skip_pending=True, timeout=10, long_polling_timeout=5)
     except Exception as e:
         print(f"⚠️ Bot Polling Error: {e}")
+
 
