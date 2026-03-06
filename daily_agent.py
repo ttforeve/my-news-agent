@@ -6,14 +6,15 @@ import schedule
 import threading
 import requests
 from flask import Flask
+import os # 💡 ဒါလေး အပေါ်ဆုံးမှာ ထပ်ထည့်ပါ
 
 # ==========================================
 # 🔑 1. CONFIGURATIONS
 # ==========================================
-GEMINI_API_KEY = "AIzaSyCpBmt0x2eEmKTqB7M9Ds0s1ZNHNbsQFkQ"
-BOT_TOKEN = "8697142153:AAFrUnnC-iqeqBDIql9LBnGbEeRPYaJM0wY"
-CHAT_ID = "1215122799"
-
+# 💡 Key အစစ်တွေ မထည့်တော့ဘဲ os.environ.get ဖြင့် ပြောင်းရေးပါမည်
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+CHAT_ID = os.environ.get("CHAT_ID")
 
 genai.configure(api_key=GEMINI_API_KEY)
 bot = telebot.TeleBot(BOT_TOKEN)
@@ -147,4 +148,5 @@ if __name__ == "__main__":
     try:
         bot.infinity_polling(timeout=10, long_polling_timeout=5)
     except Exception as e:
+
         print(f"⚠️ Bot Polling Error: {e}")
