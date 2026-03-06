@@ -146,7 +146,8 @@ if __name__ == "__main__":
     
     # 3. Telegram Bot ကို ၂၄ နာရီ နားစွင့်ခိုင်းထားမည်
     try:
-        bot.infinity_polling(timeout=10, long_polling_timeout=5)
+        # 💡 skip_pending=True ထည့်လိုက်ခြင်းဖြင့် အဟောင်းတွေနဲ့ ငြိတာကို ကျော်ချပေးပါမည်
+        bot.infinity_polling(skip_pending=True, timeout=10, long_polling_timeout=5)
     except Exception as e:
-
         print(f"⚠️ Bot Polling Error: {e}")
+
